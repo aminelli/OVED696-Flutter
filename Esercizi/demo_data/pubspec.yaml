@@ -23,6 +23,7 @@ dependencies:
   path: ^1.9.1
   provider: ^6.1.5+1
   intl: ^0.20.2
+  path_provider_windows: ^2.3.0
 
 dev_dependencies:
   flutter_test:
