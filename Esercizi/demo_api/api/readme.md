@@ -16,3 +16,16 @@ npm install json-server
 ```sh
 npx json-server db.json --port 3000
 ```
+
+## Per Ambienti Windows:
+
+Lanciare powershell come amministratore
+
+```powershell
+# Lanciare questo comando per abilitare l'esecuzione di script
+Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser
+
+# NOTA: Se non funziona usare
+Set-ExecutionPolicy -ExecutionPolicy Bypass -Scope Process
+
+```
