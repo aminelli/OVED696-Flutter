@@ -1,0 +1,14 @@
+{
+  "customers": [
+    {
+      "id": "1",
+      "name": "Mario Rossi",
+      "email": "mario@rossi.com"
+    },
+    {
+      "id": "1752185484367",
+      "name": "aa",
+      "email": "aa@aa.it"
+    }
+  ]
+}
