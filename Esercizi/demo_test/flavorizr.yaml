@@ -1,0 +1,46 @@
+# Configurazione Flutter Flavorizr per gestione flavors automatica
+# Genera configurazioni per dev, stage e prod
+
+app:
+  android:
+    flavorDimensions: "environment"
+  ios:
+
+flavors:
+  # Development Environment
+  dev:
+    app:
+      name: "[DEV] Demo App"
+    android:
+      applicationId: "com.example.demo.dev"
+      icon: "assets/launcher_icons/icon_dev.png"
+    ios:
+      bundleId: "com.example.demo.dev"
+      icon: "assets/launcher_icons/icon_dev.png"
+
+  # Staging Environment
+  stage:
+    app:
+      name: "[STAGE] Demo App"
+    android:
+      applicationId: "com.example.demo.stage"
+      icon: "assets/launcher_icons/icon_stage.png"
+    ios:
+      bundleId: "com.example.demo.stage"
+      icon: "assets/launcher_icons/icon_stage.png"
+
+  # Production Environment
+  prod:
+    app:
+      name: "Demo App"
+    android:
+      applicationId: "com.example.demo"
+      icon: "assets/launcher_icons/icon_prod.png"
+    ios:
+      bundleId: "com.example.demo"
+      icon: "assets/launcher_icons/icon_prod.png"
+
+# Istruzioni per generare i flavors:
+# 1. Creare le icone in assets/launcher_icons/
+# 2. Eseguire: flutter pub run flutter_flavorizr
+# 3. I file AndroidManifest.xml e configurazioni iOS verranno generati automaticamente
