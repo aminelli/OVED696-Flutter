@@ -1,0 +1,81 @@
+name: task_manager_monorepo
+repository: https://github.com/user/task_manager_monorepo
+
+packages:
+  - apps/**
+  - packages/**
+
+command:
+  bootstrap:
+    environment:
+      sdk: ">=3.6.0 <4.0.0"
+      flutter: ">=3.27.0"
+    
+  version:
+    branch: main
+    message: "chore(release): publish packages"
+
+scripts:
+  analyze:
+    run: melos exec -- dart analyze .
+    description: Analizza tutto il codice del monorepo
+    
+  format:
+    run: melos exec -- dart format .
+    description: Formatta tutto il codice
+    
+  format:check:
+    run: melos exec -- dart format --output=none --set-exit-if-changed .
+    description: Verifica la formattazione del codice
+    
+  test:
+    run: melos exec -- flutter test
+    description: Esegue tutti i test
+    select-package:
+      dir-exists: test
+      
+  test:unit:
+    run: melos exec -- flutter test test/unit
+    description: Esegue solo i test unitari
+    select-package:
+      dir-exists: test/unit
+      
+  clean:
+    run: melos exec -- flutter clean
+    description: Pulisce tutti i packages
+    
+  get:
+    run: melos exec -- flutter pub get
+    description: Scarica le dipendenze per tutti i packages
+    
+  upgrade:
+    run: melos exec -- flutter pub upgrade
+    description: Aggiorna le dipendenze per tutti i packages
+    
+  build:mobile:
+    run: flutter build apk
+    description: Build APK dell'app mobile
+    exec:
+      concurrency: 1
+    select-package:
+      scope: app_mobile
+      
+  build:admin:
+    run: flutter build apk
+    description: Build APK dell'app admin
+    exec:
+      concurrency: 1
+    select-package:
+      scope: app_admin
+      
+  run:mobile:
+    run: flutter run
+    description: Esegue l'app mobile
+    select-package:
+      scope: app_mobile
+      
+  run:admin:
+    run: flutter run
+    description: Esegue l'app admin
+    select-package:
+      scope: app_admin
